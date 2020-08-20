@@ -1,0 +1,13 @@
+create table files (
+    id integer primary key autoincrement,
+    path text,
+    sha1 text,
+    byteLength integer,
+
+    fileSystemCreatedAt datetime,
+    fileSystemModifiedAt datetime
+);
+-- so we can easily find all locations for a sha1
+create index path on files (path);
+create index sha1 on files (sha1);
+
