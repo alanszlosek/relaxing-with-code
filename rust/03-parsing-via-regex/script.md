@@ -14,8 +14,6 @@ Since the StatsD message format is pretty simple, we can use splitting to separa
 * Then re-join into a string that we can run through our sharding function
 
 
-Show why 
-
 
 ```
 use regex::Regex;
