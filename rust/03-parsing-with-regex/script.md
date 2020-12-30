@@ -1,6 +1,6 @@
 Good morning! I hope you're ready because it's regex day. We'll continue our work on a sharding StatsD proxy. This time we're going to lightly parse the StatsD messages using regular expressions. Once parsed we can normalize the message to ensure consistent sharding. If you recall from a previous video that two different StatsD messages might have the same metric name and tags, but with tags specified in a different order. We need to make sure those messages get sharded to the same server, which is why we're going to parse and normalize. More on that later.
 
-When I first thought about using regaular expressions to parse the statsd message I envisioned specying capture groups so I could easily loop over matched tags if there are any. But captures in rust don't seem to support that, as we'll see. So let's start there.
+When I first thought about using regaular expressions to parse the statsd message I envisioned specifying capture groups so I could easily loop over matched tags if there are any. But captures in rust don't seem to support that, as we'll see. So let's start there.
 
 I did a search for regex and rust, and found the regex crate. One of the first examples on the doc seemed to be exactly what I wanted: iterating over capture groups. Here's the example code adapted for parsing StatsD messages.
 
